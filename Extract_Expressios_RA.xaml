@@ -1,0 +1,798 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="test_interline_RA" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Cmd" Type="OutArgument(x:String)" />
+    <x:Property Name="DateOfIssuance" Type="OutArgument(x:String)" />
+    <x:Property Name="List_Coupons_RA" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="SameFareBase" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="TestChild" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="TestIN" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>927,5280</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>test_interline_RA_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="84">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle</x:String>
+      <x:String>DocumentFormat.OpenXml</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Core.Activities.SAP</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="72">
+      <AssemblyReference>DocumentFormat.OpenXml</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reactive</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Extract_expressions_RA" sap:VirtualizedContainerService.HintSize="840,5215" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="couponNumber" />
+      <Variable x:TypeArguments="x:String" Name="test_round_void" />
+      <Variable x:TypeArguments="x:Int32" Name="void_count" />
+      <Variable x:TypeArguments="x:Int32" Name="index_void" />
+      <Variable x:TypeArguments="sd:DataTable" Name="CmdTable" />
+      <Variable x:TypeArguments="x:Int32" Name="count" />
+      <Variable x:TypeArguments="x:Int32" Name="CountChild" />
+      <Variable x:TypeArguments="x:Int32" Name="CountIN" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Browser Chrome: RA Document View" sap:VirtualizedContainerService.HintSize="835,4824" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="654bd9c0-7d9c-44a2-bed1-4759a5226972" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="801,4607" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[List_Coupons_RA]" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenPages="{x:Null}" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-1' ReferenceIdx='1' Name='Column-1'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-2' ReferenceIdx='2' Name='Column-2'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-3' ReferenceIdx='3' Name='Column-3'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-4' ReferenceIdx='4' Name='Column-4'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-5' ReferenceIdx='5' Name='Column-5'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='6' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-7' ReferenceIdx='7' Name='Column-7'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-9' ReferenceIdx='9' Name='Column-9'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-10' ReferenceIdx='10' Name='Column-10'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-11' ReferenceIdx='11' Name='Column-11'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;column name='Column-6' attr='text' /&gt;&lt;column name='Column-7' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;column name='Column-9' attr='text' /&gt;&lt;column name='Column-10' attr='text' /&gt;&lt;column name='Column-11' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="739,189" sap2010:WorkflowViewState.IdRef="NExtractData_2" InScope="{x:Null}" InUiElement="{x:Null}" LimitExtractionTo="Rows" MaximumResults="0" OutUiElement="{x:Null}" ScopeIdentifier="654bd9c0-7d9c-44a2-bed1-4759a5226972" Timeout="{x:Null}" Version="V1">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="212, 393, 1656, 49" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' aaname=' CPN FROM/TO Marketing Flight Number Operating Flight Number Departure Date:Time Fare Basis Booking Class Involun Set Change at Usage CPN status Billing Status*' innertext='List of Coupons  CPNFROM/TOMarketing Flight NumberOperating Flight NumberDeparture Date:TimeFare BasisBooking ClassInvolun SetChange at UsageCPN statusBilling Status  1*' /&gt;&lt;webctrl tag='TABLE' innertext='  1*' /&gt;" Guid="1df0d3ad-451d-4361-b9b3-1c4653cbaafe" InformativeScreenshot="1bc3c4f78ff89c1b417e4290a7dca2d9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='RA Document View' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NExtractData>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[List_Coupons_RA.RowCount]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Text 'Date of Issuance'" sap:VirtualizedContainerService.HintSize="739,189" sap2010:WorkflowViewState.IdRef="NGetText_1" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="654bd9c0-7d9c-44a2-bed1-4759a5226972" ScrapingOptions="{x:Null}" Timeout="{x:Null}" Version="V1" WordsInfo="{x:Null}">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://airlineretailing.amadeus.com:55001/1ASIHARPFJ/RAMGUI/index.html?SITK=E36HQITAT2000211NJ8N8KVI0010#arp_usap=1ASIUARPFJ&amp;access_token=hmk01aGd4lpf5WZpK5JG3w&amp;id_token=eyJhbGciOiJIUzI1NiJ9.eyJhdF9oYXNoIjoiaTN1LXRVNkdSNElVbWQ0ZFAwdUl1QSIsInN1YiI6IkZKQU1NQVIiLCJwZXJtaXNzaW9uc192MiI6eyJSRkRfT0dBIjpbIkRJU1BMQVlfVkVORE9SX0RFVEFJTFMiLCJMSVNUX1JFTEFURURfUVVFVUlOR19PRkZJQ0VTIiwiUFRTX0FETUlOIiwiQ1JFQVRFX1VTRVIiLCJMSVNUX0RBVEFfVFlQRSIsIkxJU1RfUEVSTUlTU0lPTiIsIkxJU1RfT0ZGSUNFX0JZX09GRklDRV9NQVNLIiwiTUFOQUdFX1JPTEVfQU5EX0FDTF9BTExPQ0FUSU9OIiwiTUFTU0lWRV9NT1ZFX09HVSIsIlBUU19WQUxJRCIsIkxPQ0tfVU5MT0NLX0dVRVNUIiwiTUFOQUdFX09SR0FOSVpBVElPTl9VTklUIiwiTUFOQUdFX0FDQ0VTU19DQUxFTkRBUiIsIkRJU1BMQVlfT0ZGSUNFU19CWV9NQVNLIiwiTUFOQUdFX1RSQU5TRkVSX1JJR0hUUyIsIk1BU1NfRVhQT1JUIiwiRElTUExBWV9TRUxFQ1RFRF9PRkZJQ0VfUFJPRklMRSIsIkxJU1RfUk9MRSIsIkRFTEVURV9HVUVTVCIsIlVQREFURV9VU0VSX1BXRF9QT0xJQ1kiLCJMSVNUX1BSRUZFUkVOQ0VfVFlQRSIsIk1BTkFHRV9GUk9aRU5fQUNDT1VOVCIsIk1BTkFHRV9HVUVTVF9DT05URVhUIiwiRElTUExBWV9PRkZJQ0VfVkVORE9SX1RBQkxFIiwiTUFOQUdFX1JPTEVfQU5EX0FDTF9DT05TVU1FUiIsIkxJU1RfQ1JZUFRJQ19BQ0NFU1MiLCJNQU5BR0VfR1VFU1RfTE9HSU5fQVJFQSIsIkxJU1RfQVBQTElDQVRJT04iLCJMSVNUX0dMT0JBTF9ST0xFX0FORF9BQ0wiLCJMSVNUX1VTRVIiLCJNQU5BR0VfUk9MRV9BTkRfQUNMIiwiREVMRVRFX0RJR0lUQUxfRE5BIiwiTUFOQUdFX0RBVEEiLCJMT0NLX1VOTE9DS19PVVRHT0lOR19BR1JFRU1FTlQiLCJVUERBVEVfSU5DT01JTkdfQUdSRUVNRU5UX0dVRVNUIiwiTUFOQUdFX09SR0FOSVpBVElPTl9QV0RfUE9MSUNZIiwiTE9DS19VU0VSIiwiTUFOQUdFX1RGQV9QT0xJQ1kiLCJVUERBVEVfVVNFUl9QUk9GSUxFIiwiTUFOQUdFX0dVRVNUX1JJR0hUUyIsIk1BTkFHRV9QUk9GSUxFX0FUVFJJQlVURV9BQ1RJVkVfVkFMVUUiLCJESVNQTEFZX1BST0ZJTEVfQVRUUklCVVRFX0FVVEhPUklaRURfVkFMVUUiLCJESVNQTEFZX0RJR0lUQUxfRE5BIiwiTk9USUZZX1VTRVIiLCJNQVNTSVZFX01PVkVfT0ZGSUNFIiwiRElTUExBWV9HVUVTVF9BR1JFRU1FTlQiLCJNQU5BR0VfUFJFRkVSRU5DRSIsIk1BU1NJVkVfSU1QT1JUIiwiQ1JFQVRFX0dVRVNUIiwiVVBEQVRFX0lOQ09NSU5HX0FHUkVFTUVOVF9JTkZPUk1BVElPTiIsIk1BTkFHRV9HTE9CQUxfUk9MRV9BTkRfQUNMIiwiVVBEQVRFX09GRklDRV9QUk9GSUxFX0VVIiwiVklFV19NQVNTSVZFX1RFTVBMQVRFUyIsIlJTT19HVUVTVCIsIlVQREFURV9HVUVTVF9QUk9GSUxFIiwiTUFTU0lWRV9BRERfT0ZGSUNFIiwiUkVHSVNURVJfRElHSVRBTF9ETkEiLCJMSVNUX09SR0FOSVpBVElPTiIsIk1BTkFHRV9QUk9GSUxFX0FUVFJJQlVURV9BVVRIT1JJWkVEX1ZBTFVFIiwiU1VTUEVORF9VTlNVU1BFTkRfSU5DT01JTkdfQUdSRUVNRU5UIiwiTE9DS19VTkxPQ0tfT0ZGSUNFIiwiREVMRVRFX0lOQ09NSU5HX0FHUkVFTUVOVCIsIkxJU1RfUk9MRV9BTkRfQUNMIiwiTE9DS19VTkxPQ0tfSU5DT01JTkdfQUdSRUVNRU5UIiwiRElTUExBWV9GSUxURVJFRF9PRkZJQ0VfUFJPRklMRSIsIlVQREFURV9PRkZJQ0VfQUNUX0RBQyIsIkxJU1RfT0ZGSUNFX1JFTU9URUxZX1FVRVVJTkciLCJESVNQTEFZX09GRklDRV9QUk9GSUxFIiwiVklFV19URkFfUE9MSUNZIiwiVklFV19ISVNUT1JZIiwiTElTVF9PUkdBTklaQVRJT05fVU5JVCIsIkRJU1BMQVlfUENDX1RBQkxFIiwiUFRTX01BTkFHRV9ST0xFX0NPTlRFWFQiLCJVTkxPQ0tfVVNFUiIsIlZJRVdfTUZBX0VSTSIsIkxJU1RfR1VFU1QiLCJQVFNfTElTVF9DT05TVU1FUiIsIlJFTU9URV9TSUdOT1VUIiwiRElTUExBWV9QUk9GSUxFX0FUVFJJQlVURSIsIkRFTEVURV9VU0VSIiwiRElTUExBWV9QUk9GSUxFX0FUVFJJQlVURV9BQ1RJVkVfVkFMVUUiLCJESVNQTEFZX09GRklDRV9OU0lEX0lBVEEiLCJESVNQTEFZX09GRklDRV9ISVNUT1JZIiwiUkVTRVRfUEFTU1dPUkQiLCJMSVNUX1BBUlRORVJTSElQIiwiVklFV19BQ0NFU1NfQ0FMRU5EQVIiLCJNQU5BR0VfR1VFU1RfUFJFRkVSRU5DRVMiLCJNQU5BR0VfVVNFUl9DT05URVhUIiwiTElTVF9EQVRBIiwiU0VBUkNIX0JZX0xBU1RfU0lHTklOX0RBVEUiLCJVUERBVEVfT0ZGSUNFX1BST0ZJTEUiLCJDUkVBVEVfR1VFU1RfQUdSRUVNRU5UIiwiTElTVF9QUkVGRVJFTkNFX1RZUEVfVkFMVUVTIiwiTUFOQUdFX1JPTEUiXX0sImNsaWVudElkIjoiMUFTSUhBUlBGSiIsImlzcyI6ImFjY291bnRzLmFtYWRldXMuY29tIiwic2lnbiI6IjIxMjJTQSIsImR1dHlDb2RlIjoiR1MiLCJsYXN0U2lnbkluRGF0ZSI6IjIwMjIwOTI2MDcxOTE5Iiwib2ZmaWNlIjoiTkFORkowMVJBIiwibG9naW4iOiJGSkFNTUFSIiwiZW52IjoiUFJEIiwibm9uY2UiOiIxMzE5Mzk2NTAxIiwiYXV0aE1vZGUiOiJIT1MiLCJuYkRheXNCZWZvcmVQd2RFeHBpcmF0aW9uIjoiNzkiLCJhdWQiOiJBUlAiLCJvcmdhbml6YXRpb24iOiJGSiIsInNjb3BlIjoib3BlbmlkIiwiYmVfdHlwZSI6IkxTUyIsImV4cCI6MTY2NDIzMDA2OSwiaWF0IjoxNjY0MTg2ODY5LCJlbWFpbCI6InNhaGFyLmFtbWFyQGFtYWRldXMuY29tIn0.bHi1iv5RNA8cKN1DXF_LdqGE5l3FpZgPKh5_hkev33U&amp;token_type=bearer&amp;expires_in=43199&amp;arp_origin=https://airlineretailing.amadeus.com:55001" DesignTimeRectangle="1700, 198, 170, 17" ElementType="Text" FullSelectorArgument="&lt;webctrl idx='3' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='7' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='FrameworkFrame3' tag='IFRAME' /&gt;&lt;webctrl parentid='hkitLayer_body' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="b3b3577c-bc6c-43d5-ada5-9d2c5f4db120" InformativeScreenshot="3c257c9b09441c9315b06c8744966a97.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amadeus Retailing Platform - PRD(PRODUCTION)' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1590, 198, 104, 17" ElementType="Text" FullSelectorArgument="&lt;webctrl id='FrameworkFrame3' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' parentid='hkitLayer_body' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='6' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='FrameworkFrame3' tag='IFRAME' /&gt;&lt;webctrl parentid='hkitLayer_body' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' aaname='Date of Issuance' check:innerText='Date of Issuance' /&gt;" Guid="8660dbcd-0824-407c-a466-d728f3ecdc3f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAVCAYAAACjSwvEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAI8SURBVGhD7ZY7bgIxEIb3gjSI6yBRcAy6FaegRRyChpKaOoWz9njW8/LahKDgyMUnEc94Xv84MLivh+u0QxesMbpgjdEFa4wuWGN0wRqjScEuu8ENA7A/2z7/FSbYfVzNg0hs3YX4lAjD3J1M269w3hZqOrn9C/V/OoZgvEHc5tpNfrdgtfHfvjh/RFEwfS43eHDr8Ur8qC1zZ3Nw9xjb5HZwa+Kfjb8QRwkmYub7WbnjbTo3XnLIH3Pme00x92cam8dS9ZBe8JEAsZ5oqxIsFRA/00HFxPgC9WbTuzkfgoiH91G02pfD/awa/CCu7rhJsT1+BsGvQjDV0zwXyEfvs3pUj94Ovqo/UUelYLqxnM1MSAXGMzOPcd9DYph2Az0gvqmAFnKmIBjz9TB/Iy6x53vw92SdPNbPBJPPeSInWPhb+AIVeZCQr9Qsh/tBXMytXkY8Z3krBNO9of+SYAvLH3xkTOBJwUgBMWhKuPzCagcMvEuwCFs02if0B+c132G4AMTO/F8RjOeUPP2jQw9iWbD8EthYg06DelGwGWOgAdLLkmDWv9hqwRZqiwul60oUBYOzFIQOj9pRMGmft5cVOJ0xH4IqGu7nFiIH8/Mx6Z154LIOOmj6eSIMfIoZ/IUt/l0rmCUM+9EhNIAfSPDZEMxfoPDL8vtgPZ7EE8fi6V1+B+6hv0FsyPItC0bze3wN8gyHVagLRfJMOdkyUpvPQQUpCeYRPVqPwLIxwTqfTxesMbpgjdEFa4qH+wb6+V7/+wCwGgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">[DateOfIssuance]</OutArgument>
+              </uix:NGetText.Text>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,175" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[DateOfIssuance]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <ui:BuildDataTable DataTable="[CmdTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="739,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Expression&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:BuildDataTable>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_18">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[void_count]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_34">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[SameFareBase]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_67">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[TestIN]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_58">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[TestChild]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_59">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[CountChild]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_63">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[CountIN]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Activités ignorées" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                  <Assign sap:VirtualizedContainerService.HintSize="653.6,69.6" sap2010:WorkflowViewState.IdRef="Assign_36">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[TestChild]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">[List_Coupons_RA(0)(6).ToString.Substring(List_Coupons_RA(0)(6).ToString.Length-2,2).Contains("CH")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Lst of coupons from RA&#xA;" CurrentIndex="{x:Null}" DataTable="[List_Coupons_RA]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="739,2370" sap2010:WorkflowViewState.IdRef="ForEachRow_7" MaxIterations="{x:Null}" Values="{x:Null}">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="705,2132" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="643,1996" sap2010:WorkflowViewState.IdRef="IfElseIf_13">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[row(2).ToString.Contains(&quot;VOID&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,525" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[index_void]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[List_Coupons_RA.Rows.IndexOf(row)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:AddDataRow ArrayRow="[{&quot;--&quot;+List_Coupons_RA(index_void+1)(2).ToString.Split(&quot;/&quot;c)(0).Trim}]" DataRow="{x:Null}" DataTable="[CmdTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,218" sap2010:WorkflowViewState.IdRef="AddDataRow_8">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:AddDataRow>
+                                <Assign sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[void_count]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[void_count+1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="Assign_60">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[CountChild]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[CountChild + 1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Assign_64">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[CountIN]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[CountIN + 1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="Else" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="529,1207" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:AddDataRow ArrayRow="[{&quot;/a&quot;+row(4).ToString.Substring(0,2)+&quot;/c&quot;+row(7).ToString+&quot;/d&quot;+row(5).ToString.Substring(0,5)+ row(2).ToString.Split(&quot;/&quot;c)(1).Trim}]" DataRow="{x:Null}" DataTable="[CmdTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="467,218" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:AddDataRow>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="467,175" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[CmdTable(count)(0)]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:LogMessage>
+                                <If Condition="[not((row(6).ToString.Contains(List_Coupons_RA(0)(6).ToString)) and (row(6).ToString.Length = List_Coupons_RA(0)(6).ToString.Length))]" sap:VirtualizedContainerService.HintSize="467,331" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Assign_56">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[SameFareBase]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="467,395" sap2010:WorkflowViewState.IdRef="IfElseIf_14">
+                                  <ui:IfElseIf.ConditionBlocks>
+                                    <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                      <ui:IfElseIfBlock BlockType="If" Condition="[Row(6).ToString.Substring(Row(6).ToString.Length-2,2).Contains(&quot;CH&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_65">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Int32">[CountChild]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Int32">[CountChild + 1]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Row(6).ToString.Substring(Row(6).ToString.Length-2,2).Contains(&quot;IN&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_3">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_66">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Int32">[CountIN]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Int32">[CountIN + 1]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                    </sc:BindingList>
+                                  </ui:IfElseIf.ConditionBlocks>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:IfElseIf>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:IfElseIf>
+                    <Assign sap:VirtualizedContainerService.HintSize="643,48" sap2010:WorkflowViewState.IdRef="Assign_57">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachRow>
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="IfElseIf_15">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[CountChild = List_Coupons_RA . RowCount]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_5">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_68">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[TestChild]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CountIN = List_Coupons_RA . RowCount]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_6">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_69">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[TestIN]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:IfElseIf>
+            <Assign sap:VirtualizedContainerService.HintSize="739,57" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["fqp"+List_Coupons_RA(0)(2).ToString.Split("/"c)(0).Trim]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="739,589" sap2010:WorkflowViewState.IdRef="IfElseIf_5">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[void_count &lt;2]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_14">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,300" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CmdTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="450,212" sap2010:WorkflowViewState.IdRef="ForEachRow_3" MaxIterations="{x:Null}" Values="{x:Null}">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="450.4,477.6" sap2010:WorkflowViewState.IdRef="IfElseIf_7">
+                                  <ui:IfElseIf.ConditionBlocks>
+                                    <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                      <ui:IfElseIfBlock BlockType="If" Condition="[Row(0).ToString.Contains(&quot;void&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_7">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,160.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[Cmd+""]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                      <ui:IfElseIfBlock BlockType="Else" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_13">
+                                        <ui:IfElseIfBlock.Then>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[Cmd + Row(0).ToString]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Int32">[couponNumber]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Int32">[CmdTable.Rows.IndexOf(Row)]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="356.8,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="test_round_void.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="List_Coupons_RA">[List_Coupons_RA]</InOutArgument>
+                                                <InOutArgument x:TypeArguments="x:Int32" x:Key="couponNumber">[couponNumber]</InOutArgument>
+                                                <InOutArgument x:TypeArguments="x:String" x:Key="test_round_void">[test_round_void]</InOutArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:InvokeWorkflowFile>
+                                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="356.8,62.4" sap2010:WorkflowViewState.IdRef="IfElseIf_6">
+                                              <ui:IfElseIf.ConditionBlocks>
+                                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                  <ui:IfElseIfBlock BlockType="If" Condition="[test_round_void.Contains(&quot;round&quot;) and couponNumber = ((CmdTable.RowCount /2) -1)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_8">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[Cmd+"-"]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[test_round_void.Contains(&quot;other&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_9">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[Cmd+""]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[test_round_void.Contains(&quot;end&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_10">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[Cmd+"/"+"r"]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[test_round_void.Contains(&quot;void&quot;)]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_11">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[Cmd+""]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                  <ui:IfElseIfBlock BlockType="Else" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_12">
+                                                    <ui:IfElseIfBlock.Then>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[Cmd +""]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:IfElseIfBlock.Then>
+                                                  </ui:IfElseIfBlock>
+                                                </sc:BindingList>
+                                              </ui:IfElseIf.ConditionBlocks>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:IfElseIf>
+                                          </Sequence>
+                                        </ui:IfElseIfBlock.Then>
+                                      </ui:IfElseIfBlock>
+                                    </sc:BindingList>
+                                  </ui:IfElseIf.ConditionBlocks>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:IfElseIf>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEachRow>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="Else" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_15">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_45">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Cmd]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">Exception</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:IfElseIf>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,168" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[Cmd]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARbSURBVFhHtZdtbFNlFMe3gUKZBhMC6JwgivuCiWKMHyTRzPhBYyLELyT64c4IAhGiwJBoAr5gUIMvQ6LBEE3QKBISNArKpdtYy1jHBMaYdGUFtjLKXti6zZau7V6O/9N7WtrbJ+stjf/klyzPfZ5z/rv3Oed5WmBJmn4bWABeALtAEwgAAhOgH7jA5+BZMB9MldV5SNOLwBLwI/ACTpiNMdAGvgWPSqQcpenMDPAhGAGqRFa4ASrBdIlsUZr+OHAAVdBc4U/0O1gEJMFk0vSFoBvwQlXAW4U/y92SRSHjtS8GPUAVII2iV4/SnatqaPbaYzRn3TGauaaGpmBMNTeFVvCQZDRJ04uBXSYqeaDSSav3umlvvZ9c3iE61xUktz9EbddC1Iq/69oCtOWgl0rerFOuF34FMyWrSNMLwbsyIYMnPmgk18Uhsip/IEIvVp1RxgKjoEIyi4xXzztWtYDKP/mbJiYkukVdD8bixlXxAO8x2Q+aPgV8Jw+UzMU39vWP0DhMhKPjNBQepX4k6BoYoStgIBSjkdi4pL6p3870UWGFOibYAQrZwDzglkEltpV22vTLBdqwz0PPfXaaFr59nIpfr6ZCPGNmvVFLy3Y2k7f3hqQ25OkOxZ+pYoLzoIQNlAPuXqpJSXjXq8ZTeedAe9qn6rgepvs3OpVzwTAoZwMfpwzmxSu7z1F09OanYAMLUDmquYD7zFo2UJsymBfLv2mhiHUDzB424DMNKpn2mp3KNtfTS7vO0o4/O+jgqV6qdQ+Q40IgiRv9gDdqQhYMHGEDEdNgBtzlvrL7pBKs16MFA01sYNLTzraympz478yKjU3ESy8cHaNQZIyCgEs0VRYMuNjAJdNgEq5hbq2p6vs3SlW6j7Q9rbQUpcdl+Qwa1ZKPTlIlSjWS0g8sGPiLDVSbBpNwDTd4ByWcofU/e6ioQl2S3H75jSRkwcBuNvC+aTDJg5uc1N6T3lwe2dKgnMvkaIDLcA0beBpEZTCNss3H6XJfWMIZemyrK2NeghwNDIKn2EAp4HM6Y1Lpekf8yE3Vp4c76C5URWLO7SjPe3D8LoaxL/XO+OZMKIuBs2AuG5gKqmQwDQ6+v6lHwhniHe/wBOgH3Am+d/rpj+Y+Ot05TAEcSGZlMbAV4DAyTsQyoOwHfKRyUisyt4hJDPCtq9hInpCmvwX4spCx4HmU2qmOYQmbKU78z9UgbT90mXYe9cUvL1dxKWm5EqT5Gx3meHzveFmypkjTbYBvr+YFcWwr7LS0qpn2NXbTeX+QLvWGqb59kL440klPbjtJ0/C8CH2DS5Q/Hc+fDhT3gQPAJllN0vSHgUcm/h80gHmSTSHjZsw/wVqAKkA+1IF7JVMW8dVZ02tADKiC5QKfNYdAqUS3KE2fBdaBa0AV2Ap81K8AMyTqLUjT54CvAZdOtqOb22sYdIHt4A6JkqeM3w33geVgG9gPGgGfpBfBCfATeA8sAyXY/bJ4MhUU/Adv+EKpYY7PrwAAAABJRU5ErkJggg==" InformativeScreenshot="cf48580609d72b11382112479572d70d.png" Selector="&lt;html app='chrome.exe' title='RA Document View' /&gt;" Title="RA Document View" Url="https://airlineretailing.amadeus.com:55001/1ASIHRSZ1A/aal/launch?app=RA%20Document%20View" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

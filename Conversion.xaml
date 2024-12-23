@@ -1,0 +1,321 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Conversion" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Nombre_To_Convert" Type="InOutArgument(x:String)" />
+    <x:Property Name="Currency_Converted" Type="InArgument(x:String)" />
+    <x:Property Name="Conversion_Date" Type="InArgument(x:String)" />
+    <x:Property Name="New_Currency" Type="InArgument(x:String)" />
+    <x:Property Name="Message" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1087.6,3929.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Conversion_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reactive</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Conversion" sap:VirtualizedContainerService.HintSize="1097.6,3904.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Altéa Reservation Desktop" sap:VirtualizedContainerService.HintSize="1054.4,3813.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1020.8,3587.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="977.6,72" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[New_Currency+&quot; &quot;+Nombre_To_Convert+&quot; &quot;+Currency_Converted+&quot; &quot;+Conversion_Date+&quot; &quot;]" />
+            <Sequence DisplayName="Conversion" sap:VirtualizedContainerService.HintSize="977.6,3382.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence sap:VirtualizedContainerService.HintSize="915.2,3257.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Calculate &amp; Convert'" sap:VirtualizedContainerService.HintSize="852.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="215, 124, 96, 13" ElementType="Text" FriendlyName="'Calculate &amp; Convert'" FullSelectorArgument="&lt;webctrl tag='A' aaname='Calculate &amp;amp; Convert' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='e0ardMenu_desktop_menu_data_idcalculateconvert' tag='A' type='' aaname='Calculate &amp;amp; Convert' check:text='Calculate &amp;amp; Convert' /&gt;" Guid="b4774448-01a9-4466-90a8-8c3e92e8a5da" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAARCAYAAAArDQkmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIoSURBVFhH7VUxrsIwDOWk/xJch5U7sLD0EBU7EhvqAgNiyI8dx7EdpwUhVIZYelLiOM6znwubzd8hdPwQXGfHenCdHevBdXasB9f5CoZbCPdr2HpnM9iOzxAuZ/esI0JtoMnS5hr3LUH21zCFW9h5ZzPAvGTTeHJjCs5hpNhk77/3KXaXBk9eoBjPcNznw1M43meI/pIg8s7i/SSGbAZwGgcb910sCtIMiJDTx9OkBAHx6DgaFKfyiVgpSJ1X53HjXDGhyUKQOcFnB0l8Oaa28QIDC5aGFjmJPM26yIf9iDmm6JqmRzpDkx9BRFokIstTkshho22TTZGvCFIg8toJhz3nBp6mABkH9Yl3vAEDXr6ogoOKoyERjcU1vpe5kGjQvwZfvCd6pPojkRYLguRiyTARN1mQEXfUgy1BvLzoK4KoaSOreHITSh3wvlcPN9T4K7Eb9Un+XKMQocXXCmD3jLTQ06GhxeJEHwvSyOsJ4jawAO6W91Pe6qeAgPmIiz57X5Acs4u+XGuLrxXA7hm8gOSqCCACjZFEU7GYSDQZktsi0ScmKZ9rQZy8RpCK13AVHBOqJuCdekgSxFvkg/vjoIey8J8RhGqY7kZIh68VwO4ZakOFZMsXkATaLf65kV8Iwr+zZEgeG0t7+EOsBGnklbmqODBRLEO/n+6lxpfmSdBZNq5D+E1tviB62LLP41sJwL029fCi4zfgOjvWg+vsWA+us2MlHMI/zrgo1qtb68wAAAAASUVORK5CYII=" InformativeScreenshot="073f00b8b77258f072316a4cfbbbb7d2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="8, 111, 987, 35" FriendlyName="'File Create'" FullSelectorArgument="&lt;webctrl id='e0ardMenu_desktop_menu_data_idyui' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='e0ardMenu_desktop_menu_data_idyui' tag='DIV' type='' aaname='' check:text='File Create New PNRLogoutCalculate &amp;amp; Convert Currency ConverterExcess Baggage RatesMileage' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="852.8,146.4" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="down" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2d6a0b39-5e64-45c9-9587-f99cf69d95dd">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="852.8,146.4" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="enter" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2d6a0b39-5e64-45c9-9587-f99cf69d95dd">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="852.8,228" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Text="[Nombre_To_Convert.Trim]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="643, 492, 61, 17" ElementType="InputBox" FriendlyName="'INPUT estandalone_curre…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Amount' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='estandalone_currencyConvInPopup_amount_id_input' tag='INPUT' type='text' aaname='Amount' /&gt;" Guid="0bdf6d4a-93fa-4d82-ab32-eb7fd463af0f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAVCAYAAAAZ6IOkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADNSURBVFhH7ZixCQJBEEUnF5MLbEjQFkztwcQCBKsw0MjMAmxCsAQjMTEQLhvnrY4gXAXDH3jHcXDBeywLu+bfOV57nx2e3m0fPtrUBT888c1pEdbn1+AP1cG7RaBIfpyudj7uJm5mZcEPz3TG31gaGWC5mPv9sne/ncqCH54ZAn/LPYBC1QMkeOKLN/7GC7BUhn6oCr4/d0VQBEVQBEVQhIYiBIoQKEKgCMFfBJ0dIoJOkXGK1H1Cr5uldrPUnjEUYWnkHlEV/PDE9zPub5irR7sA5VhGAAAAAElFTkSuQmCC" InformativeScreenshot="f5516d8094aa36dd28d6f8af65fe3896.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="643, 477, 40, 15" ElementType="Text" FriendlyName="'Amount'" FullSelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_amount_id' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_amount_id' tag='LABEL' type='' aaname='Amount' check:text='Amount' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAATCAYAAADrqO95AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFFSURBVEhL7ZOxSgNBEIa3lzQpfCEh9geBtL6Dje2xgk9hYbhAujyA9aUWfIMIB2JjIdj97szOXOZkT08wYZX7YcjsZG72m9ldhz+mEfjQGoEPrf8DXJcOznnUsj66th5uXqGRpaoHuIYPsD5A+62Ejq0fAVNyGWarv6wG1Tw0UIaYk+nvKhTs28ZiXpsjUTqxYiXbGxiOh5rdOjQwrWG+C0oCUxH+kIF0UwHhBsTXCXwC0CabVdEF6wFW3+bbHKsEMHVXoNqRL1Plrq3fB9DNsQ1/BZyKDwemRHMcbGaq2QF3CpDaTYcAx3jfldA4+78DbK+DSkGHAWt+PJ39o4uNxzg/3O+AmSXm2wEmH13OaoHXj++YLV8xvXnByXW+xsBX92/JP3M0R5PVxdnlLSbTU7l/mRpdA4W9WJzj+eEOeNpkaht8AK9Z6rzbCJp3AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Currency / NUC'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="852.8,228" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Text="[Currency_Converted.Trim]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="782, 492, 61, 17" ElementType="InputBox" FriendlyName="'INPUT estandalone_curre…'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Currency / NUC' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='estandalone_currencyConvInPopup_currTextFrom_id_input' tag='INPUT' type='text' aaname='Currency / NUC' /&gt;" Guid="0c764b79-b8e1-4add-b7f6-d032452a1df5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAVCAYAAAAZ6IOkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADQSURBVFhH7ZixCQJBEEUnF5MLbEjQFkztwcQCBKsw0MjMAmxCsAQjMTEQzMZ5qyMqVjD8gXccBxe8x7Kwa/6a7fHuo83Vu+XFe4u64Icnvjktwnx/+/tDdfBuESiSH4ezlfe7gZtZWfDDM53xN5ZGBphOxn4+rN1Pu7Lgh2eGwN9yD6BQBqDY78+VwBNfvPE3XuBTvHoEwPHtrgiKoAiKoAiK0FCEQBECRQgUIfiKoLNDRNApMk6Ruk+462ap3Sy1ZwxFWBq5R1QFPzzxfY77AxGFJkTioRlDAAAAAElFTkSuQmCC" InformativeScreenshot="725c30314fed9da76a80394cd478029b.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="782, 477, 77, 15" ElementType="Text" FriendlyName="'Currency / NUC'" FullSelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_currTextFrom_id' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_currTextFrom_id' tag='LABEL' type='' aaname='Currency / NUC' check:text='Currency / NUC' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAATCAYAAADoH+FRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIuSURBVFhH7ZW/SgNBEMa3F5sUvpCg/UHA1newsQ0n+AwWFsoF7HwA66QWfIMIAbGxEOzG/Wb/3Mze7ZmQC8TjPli4vdndme+3k4uhUTtrhNiDRog9aITYg0aIPWiYEJclmdnCT/avDMQ1VVNDxoRRULXyoX+gxcxQufSTqOCppIgXsKeVjbhYMV/7gNWqokKutU9l5KHPaYHok8mbtMlUgoMW6pfmgzyoaVF72RiiAyjj63kRL6oJsXEDQjEphIN9h/L7kkrARzyd2yVIGm/RXxA6ppjZC/LvZffo9Xd1LpbInQr1xxqlHKhyib3e36YQle+mGhC5+NyGLojSVDpXxup9gKgghzVsQENCXHVQ5pun1ikFiG4NX1j00w2R6+z4xvYHUe5J5nxm6Co/YII7UYLxe3h9WnRiSnZtLcDQ8GvVEOOl7gsimwltnErB2RJiSxFbQbRy8MTPsaGumIBoxWfZT0nIqWqBBMTOxrLa7o8FRkOR/LwZRLWW5xU/5yA21gfx+8SsFOLZjtEQHSTr0+dMQek5LkfnRTyc1QIR8iD9T6/uTPHe3uKmnQhxUfE8ty8L0Uqtj2BE97fIdaqfNJRAtMJ6mZPnsca0ox3IGBf7MhAPVH92Wh7wPhUhPr390NnjF01uP+noZrgD/uATfvsSQ7x++W5NOPQB333I4EbCoadX93Q8ORHfheEN+IPP4LmPjjRo7QDw8uKcPl4fiN6fBzvgDz4DSPjfTUS/GUWbLjQ12RsAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Currency / NUC'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="852.8,228" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Text="[New_Currency.Trim]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc332.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AFJPAFJP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_WBP&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin&amp;ACTION=clpLogin" DesignTimeRectangle="916, 492, 61, 17" ElementType="InputBox" FriendlyName="'FJD'" FullSelectorArgument="&lt;webctrl tag='TABLE' class='convert' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table' idx='1' /&gt;&lt;webctrl tableRow='1' tag='INPUT' type='text' aaname='Currency / NUC' colName=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;  Currency / NUC &amp;#x9;&amp;#x9;&amp;#x9;  ' name='currTextTo' /&gt;" FuzzySelectorArgument="&lt;webctrl id='estandalone_convertionTable' tag='TABLE' /&gt;&lt;webctrl id='estandalone_currencyConvInPopup_currTextTo_id_input' class='' tag='INPUT' type='text' aaname='Currency / NUC' /&gt;" Guid="3243ef98-6ca0-452e-a1ee-93ccd7633d61" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAVCAYAAAAZ6IOkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEWSURBVFhH7Zc9DoJAEIX3WtzBisTKWxhOYGjo7a2wNtzABLGgs/SnMJpwB5sng7s4S4DQkOC4L3nFMrsk78uwExR+SNlKwd8WetXQI4Y/j9FR7dVPQRhLFoTb9YxjdkCapmJN+SgnVw2BCpfTHq97Ajx3Yk35KCcHUUMgQtIBGFNOymtUQ6BWaTsg1VVeLQehVAeEDeKZglLcC2T5Er5ZB1HrPn+9Ye+ZrgdDCBP7oHGx9iwI330aSlWzz0zNI0IgRwiVhzjnz6bnwRB4m6vZEoWu90PoBzgVj9wJDkJpYZ9DF4QsMFOgue+zlnsx8vFI45Lt43eHoBEp360Q3L9DKfcXqUUFIkStItWUjwMgWRD+VQ4CgDcaKvGeN8NkHAAAAABJRU5ErkJggg==" InformativeScreenshot="78cbf8e592a1f3103a8b51db368740b4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="916, 477, 77, 15" ElementType="Text" FriendlyName="'Currency / NUC'" FullSelectorArgument="&lt;webctrl id='estandalone_convertionTable' tag='TABLE' /&gt;&lt;webctrl parentid='estandalone_currencyConvInPopup_currTextTo_id' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='estandalone_convertionTable' tag='TABLE' /&gt;&lt;webctrl parentid='estandalone_currencyConvInPopup_currTextTo_id' type='' tag='LABEL' class='' aaname='Currency / NUC' check:innerText='Currency / NUC' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAATCAYAAADoH+FRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVFhH7ZXPasMwDMb9jIG+UMirpOexPcGgS+877s9hdNB32EWzZDmWHHlNqTvSkg8CtR1Ln36WGwerLtYKsYJWiBW0QqygFWIF3SfEfQeuHXhwfRUhHrcNOOfGp9keeWX5GloH3Z4HQjjvXAP9gScOPTSuA8RN9W56SFUeod/IOGGcmKQ4JsQAMAQPGqBTCZYsLFZ6T0KIzcbXFrt0NkQGKLvbd3tsLANifgJCIql6j+c7Omm/no/xdbxi8RSjWZzzBXfxhIVJdRPap8zTCY+FAyeI28Hv5S6aC1HVPdUUIm0QLS+lguVJRFH52O/orH0EVhZk/I6S/3O4XgCFMEp/PQGiX4tdRHlOQ5yuaVWEKE4qH8su5CcWk8wh6JCXTE8+DHrdBoWeCt69RogUy/u7GkRKILtI6BKIlomzIIZ5dR0nYjg8ypUgcqzWd2R8f+JR1EdNUI573oeF4HAB9HsmRPkuj/tozoAYTBugOI4FmIT7SmteEmLIh7eCfVJskVONA1AV2+eKsUyIqAAyXb8IAI3QHH8QZkFEEZgsXgmil8o/mhfdYQi9ldZQGqLRLJbHUQxyXE/7ihAXKTwcdeWksEije/9BNwUx7ySlPwFfV7fViQuVgvj58Qb74QV2u93dPlgf1llTI0QM/P76DD9fjwDfD3f7YH1YZz2QAL8GgONXpHCabwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Conversion Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="852.8,228" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Text="[Conversion_Date.ToString]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="1019, 492, 94, 17" ElementType="InputBox" FriendlyName="'17Nov22'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='Conversion Date' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='estandalone_currencyConvInPopup_b_date_no_time_id_input' tag='INPUT' type='text' aaname='Conversion Date' /&gt;" Guid="f46caae8-e9e9-481f-9d24-d3d2effbba9e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGIAAAAVCAYAAAC9gjt3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIVSURBVGhD7ZlBasMwEEW1L920m96n0AMYcoAcootugws9RqE40Dt07VygN8giELrpotDddP6MJMty1CSkdlDRg0kkWZLt/zUy2IYsr+/fdPfySVdPH3TxWGLMgMbQGpo7xIiHt6+dA0qMH9BejIArrvH2/pkur2/IGFNixIDG0NrpDg8MUsSZMJ/PabvdikOF8YDG0NqZAQ+MeybApWLCdEBraA7t4YFBAYGUKUwLNPf6FyPOx+FGrGoyi9ZWiNrF8MFTLTfaz5WFDTUzQ/XKVm3dj/NztlSbipq1rQrd2P75au6tpNpzA9e/xwgIZG80MKJPIDaMmFVUeVFCI7TcmWSFtPOiHB6jdWPn4XGLhn+VbkyqPT8OMELZLKv0TYr4VhBbbrm/ihqZFK9aLzYTzsOkznlsew78gRHhime8mJxJ8t8dlzkCoZVwS0I5zKR4qwLR+Typ9jw43YhoFYd1bBX16hgj3BguIFMGffX4ruvIeVsCJxqxYxWGxoiYNWeG7YNjv21NAH34PDhf73nBpBZDcpFkxGlGxNkAojZZqTyfmqXGdfPEdaAZUkXb0n/NBMcBRkAYFVMj3M+jbACxObLiw35WfDdfStyewfE1IJBFqfb8wLXvMaIwBT0jyrum8zB411Tevk4PNB68fS3fI6YPaOxMQMj3CDhUvtCdL/wXOvll4ApSxD0zSowX0BhaQ3OF6AeAobK+pxdjTQAAAABJRU5ErkJggg==" InformativeScreenshot="f6db9f8f701e4cb7382550c8966e9373.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="1019, 477, 81, 15" ElementType="Text" FriendlyName="'Conversion Date'" FullSelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_b_date_no_time_id_textfield' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_currencyConvInPopup_b_date_no_time_id_textfield' tag='LABEL' type='' aaname='Conversion Date' check:text='Conversion Date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAATCAYAAADh9EErAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIfSURBVFhH7ZVNTsMwEIWzR2xgw32QOECkHqCHYMG2ChLHQEKJxB1YpxfgBl1UqtiwQGJn7BmP/cZxW9I0goWfNFIy8fx9dpLKFJ1dBeoMKlBnUIE6gwrUGVSgzqA9UHvTVJWpgjXW89famnZRmWbtbyeoX+Fs1la/mG7dmGrR2i6OKwOVgdZdDN929VmG+S9yUHE+gnwM2CSoB4PhBIc1/gStbBw9q0274Y3APHTvTwRdSx7vo0Ftjtr6aGDXh6yhPMlJhecB0Ka18Y3tBeOGSqGGGSg3X4fa1J9+czkWfTyzaACVdi37OnAxaSau800AHLqmAaUYNO38YVjXGK+hOOWPAPsugapyw1ryS5zOgRpCzftUneSwufWSGw+M0wioEQApFIFhrbBAaBRAqlPqzcXqofxGqW851MkMGOqEGN0XStdioU/3mIPKG4YzYD8DqJQQFkSNhypreutTDWc2LTdobN6BmhNqkjvkgJkHUIFFohE/Ki4sftcYwzkA1RevF8lmqM1p6VoPauMkRwAFdfC19P1G/3ioNIsAQ3jYq4LKueOc9r6T6yxUJ250eLTBnxTIQ00a9qI1IT83rQf1Tfs17E8g0cD43GoEVIklg35VbfvjjCcyzs71EkaQYw/UoikKUF/fv83dy6e5evowF4/FphhBfXj7yj4sdppV7oTKze39s7m8vonfiWKnmXvlBehyuTS73Y4+B0WnypgfjewLNDcLi+oAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Type of Conversion'" sap:VirtualizedContainerService.HintSize="852.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V1">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="1232, 665, 52, 17" FriendlyName="'Convert'" FullSelectorArgument="&lt;webctrl tag='STRONG' aaname='Convert' innertext='Convert' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='estandalone_currencyConvInPopup_convertBtnBtm_id' tag='STRONG' aaname='Convert' check:text='Convert' /&gt;" Guid="45b8e276-5e53-4202-af6c-8cbe779802bb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAARCAYAAACSGY9uAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFSSURBVEhL3ZSxSkMxFIb7bL6HvoRv4OTYVXB3FQep0MHZQUQoOCgI1uVWFCpYS5HId8mvv7mHCtI7xMBHkj/nJOe/STsY7IzSvyIUayYUayYUayYUayYUje2D6zRfrJIaY7Qoti8m09c0njyFax1CMSMzvhnjw/OHH3F9szFDFD59XqSt/YvOmt+cYoAxBdCWq4+0d3zb7uM36/tSqBp5rNPfNW9t/uPLe1793s/r6BCKGTbWIY4K11dTnBtyXeZ1s2jkUhyFk0fMbL5sNdZl2OMZ/0ooZlRQqfvhzPXFd49u2l6FU4TyNSaXGHq0spFbGijnawnFDJv4lxJ/MUQsOSeXTcckY6c3QxQe/SmcXjVt4dI5EPTkIkOs8bz86dH772J4dv/15PzMjRkCmVLTjbkubZ0hzckh1zU1mSsNsJ+vSw8JxZoJxZoJxZoJxWoZpU84LyzsSSshjgAAAABJRU5ErkJggg==" InformativeScreenshot="d754e9e78ffd595d0c6280b264a95bb3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector, Image">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="639, 451, 650, 14" FriendlyName="'Type of Conversion'" FullSelectorArgument="&lt;webctrl parentid='estandalone_currencyConvSearch' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_currencyConvSearch' tag='H2' type='' aaname='Type of Conversion' check:text='Type of Conversion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAo4AAAASCAYAAADVNV/xAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL/SURBVHhe7dmxTTNBGIRhd0QZlAAduAIacAHOySnAGRIxOSlFEDu9X2Mx1vzDchySLRl4H2ll3+7e7rfnZHReTQAAAMACBEcAAAAsQnAEAADAIgRHAAAALPKjguN+v5/W6/W0Wq0O7fn5+X0EAAAA53YMjpvN5hjIumnsEjw8PBzqmQuMb29v0/X19UXW/5UMxjorAADAJfnwxtHB6+rqanp9fX3vvQwKgHN1qV/jOUch8xLPAgAA8NMsCo4KX3oLprdheiuWb8Y05reVNzc3h0+1fMvXfzFrfe0z4reKbn7z1v2uxebe1u12u8NZuo48oz51fXt7e2ieo/P5mWTdrsfn9DNycw1eV/ve398f93S/57vfz1LrSa+bz9Vz/anWzwUAAOBUFgXH7nPocUhxcHFYymuHNYeuvjc5JHkdh7Ne16Eqjepuut/jrqvP1Nd9Ru+d1113jnkdXavp++Pj439ry3a7Pcwd3as+8T6+9ty+1jwAAIBTW/xXdYa4rwJdBpwOPx3YbNTvez8Lb8lze13rtSTP0eN+Dg68eaYeU1/uOzp/7uvxUa15xj7vaN8c798FAADglBYHRwcg/5Wb4x1gHIzU7+/dev1RcPwqKKXP6jbXPwpwWrfHe29fa/zp6el4n+v2ubKN1pXRPR7PM/Z5fZ/P2OMERwAAcE6Lg2OHnQxCHWAykOX3OR2KpENX75Oyvg5OLy8vw7+HM2j1Xh0cRftrzt3d3bGOUd2p120e93p5xj5v19TjBEcAAHBOi4OjOJhkWJEOMHk9ClbqU/jq9TU/g08Hod6nOYTlXprra93v712X750Ljq5PbdSv9U19uu51PeYzdR15Rt/rdXufnCv9vAAAAE7pW8HRQSZDkzjAZMvw4nCU46P1xeHHLdfpoDTi+kdrdB1Zg882Fxxz7Q5nDnXZVG+v+9lcn6nP2HM1bj3Xz65rAwAAOIUPwXGOg0mGF+kAAwAAgN9ncXDMt20dEAmOAAAAv9+33jgCAADg7yI4AgAAYIFp+geZ7wTWAIhrygAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="852.8,32" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Currency to'" sap:VirtualizedContainerService.HintSize="852.8,1202.4" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Timeout="3" Version="V1">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="La cible apparaît" sap:VirtualizedContainerService.HintSize="400,974.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NGetText DisplayName="Get Text 'Currency to'" sap:VirtualizedContainerService.HintSize="356.8,167.2" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V1">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable BrowserURL="https://tc317.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AMHPAMHP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_LP_INTER&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin" DesignTimeRectangle="638, 600, 636, 170" FriendlyName="'FQC 516'" FullSelectorArgument="&lt;webctrl tag='PRE' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='PRE' type='' /&gt;" Guid="e92051b1-a7ed-4594-ab35-3074c252a1cd" InformativeScreenshot="c7ffbb118f11ec3550fd0f6352890532.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="638, 572, 636, 14" FriendlyName="'Currency to'" FullSelectorArgument="&lt;webctrl parentid='estandalone_crypticTitle' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_crypticTitle' tag='H2' type='' aaname='Currency to Currency Conversion' check:text='Currency to Currency Conversion' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAoAAAAASCAYAAADL/G9CAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARZSURBVHhe7Zu7Te1QEEXpiDJogQ6ogAZIkYgpgALIkIgJyCCkAEJISf20LDbadxh/EC/B3ks6sn3O/H2lGVlwNIQQQgghhF2RATCEEEIIYWdkAAwhhBBC2BkZAEMIIYQQdkYGwBBCCCGEnXEwAL69vQ0nJyfD0dHR17q4uPg83QYvLy/D8fHxcHZ2Nnx8fHzu/hzq4nWibtRva/zlPG9ubsaYf/uuQwghhK3xNQBqMGJxDw8PDwfPW+C3AyA66DJYMGCABmc9b4G95BlCCCHskXEA7Jq9uL29HZ6fn7/OGQoBOclLn8EKea7s6+sRewwO+pqIDfa15FPD2enp6bh0Lp9QdbF7fX093su+BpU6vGrf9Ymb+JWPlmKqSE56Aj/kqXPFUgfOribKiXsW+8QqXc7cptf7/Pz82zlUXe4vLy8P5KbqBEt5Qn0Xa+LzM/mUHflak7f/zrr3ik2vq+tLxmOQz7nfXgghhLAVxgFwbhAAb5xqiBoQuNbGqn0ar+/xrKbMOUiGfTVhxaFnDQZdQ+f+8fFxlNPgVOWcahNqTJ5bRfF2ZyBd+a7+pK/Fs/xrkYdykh2Pyevtz8h3dYOrq6vh7u5u3F9TJ8U5lad8SNdtLcXnuYA/V7t+5na1GP7JRzlJh3hqflwVw1TN6rPXMIQQQtgK4wBYm1/FGy9NFbrGXPVpuK4D3oTBm3RtuhpM1dw7e8LP5uSqjy72KiMki23y7lBdiAGqrS42r4GQHcm5nff3928xu11/NxWX62KBNXlWXX9Xr6+vs/F5Lui57E/z1nmXB8/s49vt6J16nep5/e2FEEIIW+K/fgGs+nVIcDt1dU16aahw1OyRmWvc1UcX+1zzV07k3aG6IAfVX60J+KAiJFcXdpYGwM6HWFsn2ZjKs/rwOupPBqbikyy+ee7qUxfnXd5QdZSTcuW8vgeYO5/7DYQQQgh/ncW/AXx6ehqbozdw0KDDVfpTjVk6U3JirgkvDYCSxR8L3x3VRxdTlXGUdz3D//39/cFQAdVWrQlUHejkRBezy8/prq3TUp7Vx9K7qvKyr32eYS72Lm/Hc8MeNuSje6eKgWs993y4DyGEELbEOACCGqA3Vxqonr0xqxGreU415q6Ze1MW7HVNujbhqosM92rQ8lfjcKoPkF0NIT4YVGruoDh5rjHKlvwpRuRE1YEuTvb4p4qlL4CdLn8DWGXn6rSUp3woZs9BulPxgfRrHNpfmzdXchPup9aVq3RrjCz3W397IYQQwpb4GgBBTY+mqVWbP3s0Sv13J+ddw4fa9IUasy9k1zThqtudSX8KDWUu63ss5T2FctNyn35GnTynriaKmzNH9ZAtFnaWBkCoui67tk4wl6fsaCl+zpfik4zriZ/k3cnq3dW6uk9WZ4dz5LrfXgghhLAVDgbAv46GjKXhbe+kTiGEEMK+2cwAqC84/lUnfCd1CiGEEMKmvgCGEEIIIYRlMgCGEEIIIeyKYfgHYvJCOcw1woQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NGetText.Target>
+                        <uix:NGetText.Text>
+                          <OutArgument x:TypeArguments="x:String">[Nombre_To_Convert]</OutArgument>
+                        </uix:NGetText.Text>
+                      </uix:NGetText>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="356.8,134.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[Nombre_To_Convert]" />
+                      <Assign sap:VirtualizedContainerService.HintSize="356.8,71.2" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Nombre_To_Convert]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Split(Split(Nombre_To_Convert,"-")(0),"TO "+New_Currency+New_Currency)(1).Trim]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="356.8,72" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[Nombre_To_Convert]" />
+                      <uix:NClick ClickType="Single" DelayAfter="4" DelayBefore="4" DisplayName="Click 'CloseCloseClose'" sap:VirtualizedContainerService.HintSize="356.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V1">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://tc332.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AFJPAFJP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_WBP&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin&amp;ACTION=clpLogin" DesignTimeRectangle="1337, 914, 55, 34" ElementType="Button" FriendlyName="'CloseCloseClose'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='Close' innertext='CloseCloseClose' /&gt;" FuzzySelectorArgument="&lt;webctrl id='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='BUTTON' type='button' class='uicButton uicButtonDefault standaloneCurrencyConverterButtonClose' aaname='Close' check:innerText='Close' /&gt;" Guid="e7eeade7-95ba-4b01-b777-38c19000cdf5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAmCAYAAAB6beP2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIlSURBVGhD7Zm7SgNBFIZDOm28gLXY+BD6LJpGRLDSgA+gr5HWTptU3iKohbGxXNJHAhZhU2yKkMtx/jO7m5nsJCbZEJjJ/vAT2DNn9nwzZ3cDk6MV0urClr9/6fCmSvnCA+WO7TXqBwd4VMWwCKyfPNHmWYV2L95o/+rDWu9dvgmOF+ZRgRl2MBjwSgB05/xVDHqmNYuN+sGxLXjABb4Ytt/v89ZvnL4Y28JWbwlYcIEvhu31ehzMFx4TCTY74gFfAtZVZ7CuOoN11RnsIl1qiIkbdWNs2V4M7G2TfJ5GUQjoFGzR6/IE3rt6vUaVdpcqt07B1skTeb5XM8SkR2GjxZGSC6KNVTScV94nVrtJxTBnFqeDfQ9EVkAlUyy0CitBlfGcL4E5pkLg0eA8Cap2zrzdkgo2UaDBw8KSRUdx7OBYACzI6D2mWGSTlwfLLzG9bWGeA3EGCKXMyflGLRl2pjb+D1YdH2rijs/hdLDhJ2e6F5SpjfHWNudHXVPG7xy7aHI6WGEuSmiaT48ca35BlRr6ro8ukr674to/j4/JqWHZM/ypiBZHagioXxfSYGQHqJrUTeO8GFhLnMG66gzWVWewrnq1YW0/uRtncCVgD64/KXdkTrDWggdcGiwOfu6/fviIzxlgwQEecGkHWzjS63Q6dFet80rY3tKoHxzgAZd2ZAlFwEEQUKvVYvu+b52j2sGhgkIxLIQAthw9brvBoYISEf0BVQsSRgLeoLsAAAAASUVORK5CYII=" InformativeScreenshot="e85fde07013fced41e40dbcec439da4d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="1348, 922, 32, 16" ElementType="Text" FriendlyName="'Close'" FullSelectorArgument="&lt;webctrl idx='2' parentid='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='STRONG' class='' aaname='Close' check:innerText='Close' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAUCAYAAADlep81AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEnSURBVEhLzVQxDoMwDOSlfILvsPKBTixdeETEjsRWdaETg5vYCbETtxSpIlg6EZ3t+OI4VFXdw6WgkiWhkiWhkiWhkiWhkh/QzgAwT6rvb8iI7gFPW1eYF3G6oMasWN8MLKAe4f5a4d6dLmgCY+s9zSgDGFJB4QBkJFrEMov7Up3NXg9ofA5iWwyL9S7QcmcCLojEsHjMJ1Ho44XcGGAeieE3kHU9LLJNFMTkfOPgd53IigQ40WmNtBHBcUgQDr68Igfcw/mxiDe2J+arpgg6dGV7gni8t6+d49gW/rn/NtTalbnXqOeH7t/cd+fQUZAFJqqF8mdPsfpQt7PsXnoQ2SXL8VGJDo8DP8ZwALIoQvLWxGxSJ7mJrm6Lq0AlS0IlS0Ili6GHN1+r0kWkk1JCAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <Assign sap:VirtualizedContainerService.HintSize="356.8,71.2" sap2010:WorkflowViewState.IdRef="Assign_10">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Message]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">Converted</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="La cible n'apparaît pas" sap:VirtualizedContainerService.HintSize="400,371.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="356.8,71.2" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Message]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">PRE-CUTOVER Document</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <uix:NClick ClickType="Single" DelayAfter="4" DelayBefore="4" DisplayName="Click 'CloseCloseClose'" sap:VirtualizedContainerService.HintSize="356.8,167.2" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c77e77ca-0e95-4422-8e67-4507b5f0e909" Version="V1">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://tc332.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AFJPAFJP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_WBP&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin&amp;ACTION=clpLogin" DesignTimeRectangle="1337, 914, 55, 34" ElementType="Button" FriendlyName="'CloseCloseClose'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='Close' innertext='CloseCloseClose' /&gt;" FuzzySelectorArgument="&lt;webctrl id='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='BUTTON' type='button' class='uicButton uicButtonDefault standaloneCurrencyConverterButtonClose' aaname='Close' check:innerText='Close' /&gt;" Guid="e7eeade7-95ba-4b01-b777-38c19000cdf5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAmCAYAAAB6beP2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIlSURBVGhD7Zm7SgNBFIZDOm28gLXY+BD6LJpGRLDSgA+gr5HWTptU3iKohbGxXNJHAhZhU2yKkMtx/jO7m5nsJCbZEJjJ/vAT2DNn9nwzZ3cDk6MV0urClr9/6fCmSvnCA+WO7TXqBwd4VMWwCKyfPNHmWYV2L95o/+rDWu9dvgmOF+ZRgRl2MBjwSgB05/xVDHqmNYuN+sGxLXjABb4Ytt/v89ZvnL4Y28JWbwlYcIEvhu31ehzMFx4TCTY74gFfAtZVZ7CuOoN11RnsIl1qiIkbdWNs2V4M7G2TfJ5GUQjoFGzR6/IE3rt6vUaVdpcqt07B1skTeb5XM8SkR2GjxZGSC6KNVTScV94nVrtJxTBnFqeDfQ9EVkAlUyy0CitBlfGcL4E5pkLg0eA8Cap2zrzdkgo2UaDBw8KSRUdx7OBYACzI6D2mWGSTlwfLLzG9bWGeA3EGCKXMyflGLRl2pjb+D1YdH2rijs/hdLDhJ2e6F5SpjfHWNudHXVPG7xy7aHI6WGEuSmiaT48ca35BlRr6ro8ukr674to/j4/JqWHZM/ypiBZHagioXxfSYGQHqJrUTeO8GFhLnMG66gzWVWewrnq1YW0/uRtncCVgD64/KXdkTrDWggdcGiwOfu6/fviIzxlgwQEecGkHWzjS63Q6dFet80rY3tKoHxzgAZd2ZAlFwEEQUKvVYvu+b52j2sGhgkIxLIQAthw9brvBoYISEf0BVQsSRgLeoLsAAAAASUVORK5CYII=" InformativeScreenshot="e85fde07013fced41e40dbcec439da4d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="1348, 922, 32, 16" ElementType="Text" FriendlyName="'Close'" FullSelectorArgument="&lt;webctrl idx='2' parentid='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='e0ardToolbar_standaloneCurrencyConverterButtonClose_id' tag='STRONG' class='' aaname='Close' check:innerText='Close' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAUCAYAAADlep81AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEnSURBVEhLzVQxDoMwDOSlfILvsPKBTixdeETEjsRWdaETg5vYCbETtxSpIlg6EZ3t+OI4VFXdw6WgkiWhkiWhkiWhkiWhkh/QzgAwT6rvb8iI7gFPW1eYF3G6oMasWN8MLKAe4f5a4d6dLmgCY+s9zSgDGFJB4QBkJFrEMov7Up3NXg9ofA5iWwyL9S7QcmcCLojEsHjMJ1Ho44XcGGAeieE3kHU9LLJNFMTkfOPgd53IigQ40WmNtBHBcUgQDr68Igfcw/mxiDe2J+arpgg6dGV7gni8t6+d49gW/rn/NtTalbnXqOeH7t/cd+fQUZAFJqqF8mdPsfpQt7PsXnoQ2SXL8VGJDo8DP8ZwALIoQvLWxGxSJ7mJrm6Lq0AlS0IlS0Ili6GHN1+r0kWkk1JCAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://tc332.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AFJPAFJP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_WBP&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin&amp;ACTION=clpLogin#" DesignTimeRectangle="561, 754, 795, 18" ElementType="Text" FriendlyName="'Currency to'" FullSelectorArgument="&lt;webctrl parentid='estandalone_crypticTitle' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='estandalone_crypticTitle' tag='H2' type='' class='' aaname='Currency to Currency Conversion' check:innerText='Currency to Currency Conversion' /&gt;" Guid="3a77ad5d-5039-46b9-b84f-050c63c4c14f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAx8AAAAWCAYAAAChQyHwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAU6SURBVHhe7ZxbbuM4EEW9RgO9IcNbcf4Hs4dkIfnIMjSixMclWSXRGY+Ssc8BCmjIUrGqyAbuld19mgAAAAAAAA4A8wEAAAAAAIeA+QAAAAAAgEPAfAAAAAAAwCFgPgAAAAAA4BAwHwAAAAAAcAiYDwAAAAAAOATTfLxfTtPp1MSf2/QVP4cH83mbzu2857h+xM9hmj6u3XxOp/N0+4yfPxFfb+en7g8AAABel8Z8vE/XJOzUbEThd357cfuRBfDjRGERmmo2vqbbn3DtOu8IFDOsc49n9QlNMeYDAAAAnhUxH0nwhjBE7+dtumI+HisK5W2+ZezeL5gP25wl5jN74Rs5AAAAgP8LxXzIT3+2v+Eo346U+8S4XKJclnxBNKa31/rn5a11ui+/wVYTlEJEuOZ9a36ulNbOyDc5OWbj8FcR/Spoyxt2Q/SbP/uZI69p1L3zVn5zPaWZ5Uq/D/5c63uToM/7J/lzyCyLAbhONzEDIVpDoGYhx+XvMhudiaxrnzmZ6c4sF4w9quobODv2tw52HWX/UhjfzMxhzdyeU1tDfS769ZzP5xpv1b18gwIAAAC/g2w+VAy1grLmfvOhEXL3ImqOSiQXsdQJMc2bhKCIzly7dW2pM+QuPRSRbfXVkHO2Yq48m9byBGRBatgT1iqacy99vftzrWN5LvWUa+j3Us9Gv1bqzzEKIf+cp+TY2NsW3eu8TzY5V17b2M+RsyP3lHPQ5iq99uct9efPXE1CWiHNKdDPpayXa+rWq/d/rcvZEwAAAIAf4hDz0eYzxddMLyBn2jxmXl8ceqK1E3iGmOtw7unFYsCakyLidE8YDvXsz9WvxRC1M20/Zn/tLHbnd/8ead/b5sPur6v7u3N0e93ab2/m5fq/O5v9/Kz9t88mAAAAwM/wi8yH5HBiyTMiIOWeWvgJTR5fuAt7IrB6dk9kyudbawa+K5oz1p7NSF47VsE6Yj7y2hsit6rP7KlB69syH7mWOlepO+7X4Bzd3lqR78Sax5m5nhcN6a+dtz3b/txV811vwnwAAADAr+Kwf/OhWCLJElMmIwJyqBet+eoIxYaHmg+Zw54wHBTN9lwDjhAe3PNHmQ995noZEcWDZ+LR5kOuXT9KDemZsX1zZh4pOSRij5gPAAAAeFaK+VAxYwmVWbit/9uVJark2W+bj0GhNCQgjXosRLSusSPQTPPh1b0tPhdkfVugxnyDotmbq1/L2JzM/tpZOLOp0TO2hjubSFm7P0dLvuV/u7L76+oeNh86y3N8ZqN3k4H9j7TmoqvbXK/fO8wHAAAA/HbEfMyIOKsEbBQ/q4gyBGsWR3LtG+ZDBVsthtc1lzyjAlJq0vXfLyrgZL0QGwJ8we2p5EnXR0VfEZ6aM804Pdv3p6I8XRuZayeEnTmtvTpiONAJYjkXun7II3PVurfFe0LyVvfHnuJaOW9e2+h59OwE9EyHMM7jcr2ZddiDNY8383Bdz4Tkimv08y735Fzd/Ne1l2tSk7l3AAAAAD9EbT4iKohzqPgSEbd+dusElC/UbZGkmOvPseS5R0DK9RK14NW12jotavE8R56LiuQYTn8d7TyXaIR5I4bPb7euZ3+u3nwS1pxC3GM+Vrr5hPDOzuh8Aq0ZWKIR1MY91Z7edXbq/bTOhtnrHGuee85kfY9nGPq/F87nmA8AAAD4pZjm43VQgYk4OwQxCLYRAgAAAIBn5bXNh7wJRwgfQ3l7j9kDAAAAeDVe2nwUIdz8xAn+G/QnV/pTLAAAAAB4CV78Z1cAAAAAAHAM0/QPHb/cWiWbNgMAAAAASUVORK5CYII=" InformativeScreenshot="93b547b40cade76413964720e2d638f4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="532, 270, 875, 30" ElementType="Text" FriendlyName="'Currency Converter'" FullSelectorArgument="&lt;webctrl id='elgen-8' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='elgen-8' tag='DIV' type='' class='ydlg-hd' aaname='Currency Converter' check:innerText='Currency Converter' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NCheckState.Target>
+                </uix:NCheckState>
+              </Sequence>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-4, -4, 1374, 736" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="9b8497a5b796b190def8e9929c9a828c.png" Selector="&lt;html app='chrome.exe' title='Altéa Reservation Desktop' /&gt;" Url="https://tc332.resdesktop.altea.amadeus.com/app_ard/apf/init/login?SITE=AFJPAFJP&amp;LANGUAGE=GB&amp;MARKETS=ARDW_PROD_WBP&amp;event=LOGIN_LOGOUT&amp;ACTION=clpLogin&amp;ACTION=clpLogin" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
